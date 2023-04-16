@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+  --primary-blue: #0a3871;
+  --primary-light: #f9fafb;
+  --secondary-light: #fff;
+  --gray: #495057;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--primary-blue);
+  background-color: #f9fafb;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  height: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 3rem;
+}
+
+.header__logo {
+  height: auto;
+  width: 2rem;
+}
+
+.header__author {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.header__author span {
+  font-weight: normal;
+}
+
+/* Container */
+.container {
+  display: flex;
+  flex: 1;
+}
+
+/* Form */
+.form-wrapper {
+  display: flex;
+  flex: 1;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  /* height: 100%; */
+}
+
+.textarea {
+  background-color: var(--primary-light);
+  color: var(--primary-blue);
+  width: 100%;
+  font-size: 2.4rem;
+  font-family: inherit;
+  flex: 1;
+  /* height: 100%; */
+  border: 0;
+  resize: none;
+  padding: 4rem;
+}
+
+.textarea::placeholder {
+  color: var(--primary-blue);
+}
+
+.textarea:focus {
+  outline: none;
+}
+
+.info-message {
+  display: flex;
+  align-items: center;
+  padding: 1rem 3rem;
+}
+
+.info-message__text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-block: 1rem;
+  margin-left: .5rem;
+}
+
+/* Buttons */
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 3rem 2rem;
+}
+
+.buttons-container__btn {
+  height: 5rem;
+  border-radius: 1rem;
+  font-family: inherit;
+  font-weight: bold;
+}
+
+.buttons-container__btn--primary {
+  color: var(--primary-light);
+  border: 1px solid var(--primary-blue);
+  background-color: var(--primary-blue);
+}
+
+.buttons-container__btn--secondary {
+  color: var(--primary-blue);
+  border: 1px solid var(--primary-blue);
+  background-color: var(--primary-light);
+}
+
+.buttons-container__btn:hover {
+  cursor: pointer;
+}
+
+/* Result */
+.result-wrapper {
+  background-color: var(--secondary-light);
+  position: fixed;
+  height: calc(100vh - 7rem);
+  width: 100vw;
+  left: 100%;
+  transition: left .3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.result-wrapper i {
+  color: var(--secondary-light);
+}
+
+.result-wrapper--show {
+  left: 0;
+}
+
+.result-wrapper__btn {
+  position: absolute;
+  height: 4rem;
+  width: 5rem;
+  background-color: var(--primary-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+}
+
+.result-wrapper__btn--close {
+  right: 0;
+}
+
+.result-wrapper__btn--open {
+  left: -5rem;
+}
+
+.result-wrapper__btn:hover {
+  cursor: pointer;
+}
+
+/* Empty result */
+.result-wrapper__empty {
+  background-color: var(--secondary-light);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-wrapper__empty-header {
+  font-size: 2.4rem;
+  text-align: center;
+  font-weight: bold;
+  margin-block: 1rem;
+}
+
+.result-wrapper__empty-msg {
+  color: var(--gray);
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+/* Valid result */
+.result-wrapper__result {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: auto;
+}
+
+.result-wrapper__result-text-container {
+  flex: 1;
+  overflow: auto;
+  padding: 4rem 4rem 2rem;
+}
+
+.result-wrapper__result-text {
+  font-size: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .buttons-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .buttons-container__btn {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    height: 100%;
+  }
+
+  .form-wrapper {
+    height: 100%;
+  }
+
+  .result-wrapper {
+    order: 1;
+    position: static;
+    width: auto;
+  }
+
+  .result-wrapper__btn {
+    display: none;
+  }
+}

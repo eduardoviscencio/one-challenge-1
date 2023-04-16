@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge 1 | Oracle ONE</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <img class="header__logo" src="img/logo.png" alt="Logo Alura" />
+      <p class="header__author">Eduardo Viscencio</p>
+    </header>
+
+    <main class="container">
+      <aside class="result-wrapper">
+        <div class="result-wrapper__btn result-wrapper__btn--open">
+          <i class='bx bxs-chevron-left bx-md'></i>
+        </div>
+        <div class="result-wrapper__btn result-wrapper__btn--close">
+          <i class='bx bxs-chevron-right bx-md'></i>
+        </div>
+        <div class="result-wrapper__empty">
+          <img src="img/search.png" alt="Search" />
+          <p class="result-wrapper__empty-header">Ningún mensaje fue encontrado</p>
+          <p class="result-wrapper__empty-msg">Ingresa el texto que desees encriptar o desencriptar</p>
+        </div>
+        <div class="result-wrapper__result">
+          <div class="result-wrapper__result-text-container">
+            <p class="result-wrapper__result-text">
+            </p>
+          </div>
+          <section class="buttons-container">
+            <button id="copy-btn" class="buttons-container__btn buttons-container__btn--secondary">Copiar</button>
+          </section>
+        </div>
+      </aside>
+
+      <div class="form-wrapper">
+        <form class="form">
+          <textarea id="input-text" class="textarea" name="text" placeholder="Ingrese el texto aquí..." pattern="[a-z]"></textarea>
+          <div class="info-message">
+            <i class='bx bxs-info-circle bx-sm'></i>
+            <p class="info-message__text">Sólo letras minúsculas (sin acentos)</p>
+          </div>
+          <section class="buttons-container">
+            <button type="button" id="encrypt-btn" class="buttons-container__btn buttons-container__btn--primary">Encriptar</button>
+            <button type="button" id="decrypt-btn" class="buttons-container__btn buttons-container__btn--secondary">Desencriptar</button>
+          </section>
+        </form>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+
+</html>
