@@ -24,6 +24,7 @@ body {
   color: var(--primary-blue);
   background-color: #f9fafb;
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
 }
