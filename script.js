@@ -62,8 +62,8 @@ const closeResultWrapper = () => resultWrapper.classList.remove('result-wrapper-
 
 // Valids the pressed key.
 inputText.addEventListener('input', e => {
-  // Remove accents.
-  inputText.value = e.target.value.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  // Remove accents and numbers.
+  inputText.value = e.target.value.normalize("NFD").replace(/[\u0300-\u036f0-9]/g, "").toLowerCase();
 });
 
 // Prevent from typing anything else than letters.
