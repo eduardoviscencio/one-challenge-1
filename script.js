@@ -23,7 +23,7 @@ const valuesToReplace = {
 const encryptText = () => {
   if (!inputText.value) return;
 
-  const encryptedValue = inputText.value.toLowerCase().replace(/[aeiou]/g, (letter) => valuesToReplace[letter]);
+  const encryptedValue = inputText.value.replace(/[aeiou]/g, (letter) => valuesToReplace[letter]);
 
   emptyResult.style.display = 'none';
   result.innerHTML = encryptedValue;
@@ -35,7 +35,7 @@ const encryptText = () => {
 const decryptText = () => {
   if (!inputText.value) return;
 
-  const decryptedValue = inputText.value.toLowerCase().replace(/(ai|enter|imes|ober|ufat)/g, (letter) => Object.keys(valuesToReplace).find(key => valuesToReplace[key] === letter));
+  const decryptedValue = inputText.value.replace(/(ai|enter|imes|ober|ufat)/g, (letter) => Object.keys(valuesToReplace).find(key => valuesToReplace[key] === letter));
 
   emptyResult.style.display = 'none';
   result.innerHTML = decryptedValue;
@@ -60,13 +60,19 @@ const openResultWrapper = () => resultWrapper.classList.add('result-wrapper--sho
 // Closes result wrapper.
 const closeResultWrapper = () => resultWrapper.classList.remove('result-wrapper--show');
 
-// Valids the pressed key.
+// Valids the value (helpful when copy/paste).
 inputText.addEventListener('input', e => {
-  // Remove accents and numbers.
-  inputText.value = e.target.value.normalize("NFD").replace(/[\u0300-\u036f0-9]/g, "").toLowerCase();
+  let currentValue = e.target.value;
+
+  // Remove numbers.
+  currentValue = currentValue.replace(/[0-9]/g, "");
+
+  // Remove accents.
+  // Normalization Form Canonical Decomposition.
+  inputText.value = currentValue.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 });
 
-// Prevent from typing anything else than letters.
+// Prevents uppercase letters and numbers.
 inputText.addEventListener('keydown', e => {
   const regex = new RegExp("^[A-Z0-9]+$");
 
