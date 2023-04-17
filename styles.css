@@ -185,6 +185,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-inline: 3rem;
 }
 
 .result-wrapper__empty-header {
@@ -234,11 +235,6 @@ body {
   .container {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
-    height: 100%;
-  }
-
-  .form-wrapper {
-    height: 100%;
   }
 
   .result-wrapper {
